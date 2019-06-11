@@ -256,8 +256,8 @@ pessoa.apresentacao2 = function(){
         metrosCaminhados = 'metro';
     
         return 'Olá, eu sou '+ sexo + ' ' + pessoa.nome + ' ' + pessoa.sobrenome + ', tenho ' + 
-        pessoa.idade + ' ' + idadeAnos + ', ' + pessoa.altura + ', meu peso é ' + pessoa.peso + 
-        ' e só hoje, eu já caminhei ' + pessoa.caminhouQuantosMetros + ' ' + metrosCaminhados + 
+        pessoa.idade + ' ' + idadeAnos + ', ' + pessoa.altura + 'm' +', meu peso é ' + pessoa.peso + 
+        'kg e só hoje, eu já caminhei ' + pessoa.caminhouQuantosMetros + ' ' + metrosCaminhados + 
         '!';
 };
 console.log(pessoa.apresentacao2());
