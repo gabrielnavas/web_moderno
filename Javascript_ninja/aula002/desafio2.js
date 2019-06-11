@@ -19,13 +19,14 @@ Crie uma função que adicione um valor à variável criada acima, e retorne a s
     O valor da variável agora é VALOR.
 Onde VALOR é o novo valor da variável.
 */
-function transf_str(num)
+function transf_str()
 {
-    return 'o valor da variável agora é ' + num;
+    vari=5;
+    return 'o valor da variável agora é ' + vari;
 }
 
 // Invoque a função criada acima.
-console.log(transf_str(5));
+console.log(transf_str());
 
 // Qual o retorno da função? (Use comentários de bloco).
 /* 
@@ -44,7 +45,7 @@ function funcao(x, y, z)
     if(x === undefined || y === undefined || z === undefined)
         return "Preencha todos os valores corretamente"
     
-    return x*y*z + '2';    
+    return x*y*z + 2;    
 }
 
 
@@ -72,23 +73,19 @@ Crie uma função com as seguintes características:
 */
 function funcao2(x, y, z)
 {
-    if(x != undefined && y != undefined && z != undefined)
+    if(x !== undefined && y === undefined && z === undefined)
+        return x;
+        
+    else if(x !== undefined && y !== undefined && z === undefined)
+        return x+y;
+    
+    else if(x !== undefined && y !== undefined && z !== undefined)
         return (x+y)/z;
-    else
-    {
-        if(x == undefined && y == undefined && z == undefined)
-            return false;
-        else if(x != undefined && y != undefined && z == undefined)
-            return x+y;
-        else if(x != undefined)
-            return x;
-        else if(y != undefined)
-            return y;
-        else if(z != undefined)
-            return z;
-        else 
-            return null;            
-    }    
+
+    else if(x === undefined && y === undefined && z === undefined)
+        return false;
+
+    return null;    
 }
 
 // Invoque a função acima utilizando todas as possibilidades (com nenhum argumento, com um, com dois e com três.) Coloque um comentário de linha ao lado da função com o resultado de cada invocação.
