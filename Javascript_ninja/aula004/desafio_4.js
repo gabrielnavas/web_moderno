@@ -5,10 +5,12 @@ equivalente booleano para o valor passado no argumento for `true`, ou `false`
 para o contrário.
 */
 var isTruthy = function(x){
-    if(x)
-        return true;
+    return (x) ? true : false;
+}
 
-    return false;    
+//MESMA COISA
+var isTruthy2 = function(x){
+    return !!x;
 }
 
 // Invoque a função criada acima, passando todos os tipos de valores `falsy`.
@@ -33,7 +35,7 @@ console.log(isTruthy(!!true));
 console.log(isTruthy(!''));
 console.log(isTruthy(!false));
 console.log(isTruthy(!-0));
-console.log(isTruthy(!0));
+console.log(function(){});
 
 /*
 Declare uma variável chamada `carro`, atribuindo à ela um objeto com as
@@ -96,7 +98,7 @@ Para retornar os valores de marca e modelo, utilize os métodos criados.
 */
 
 carro.obterMarcaModelo = function(){
-    return 'Esse carro é um ' + carro.marca + ' ' + carro.modelo;
+    return 'Esse carro é um ' + carro.obterMarca() + ' ' + carro.obterModelo();
 }
 
 /*
@@ -115,6 +117,26 @@ mostrar quantos assentos ainda podem ser ocupados, com a frase:
 - Se couber somente mais uma pessoa, mostrar a palavra "pessoa" no retorno
 citado acima, no lugar de "pessoas".
 */
+
+carro.adicionarPessoas2 = function(numeroPessoas)
+{
+    var pluralOuSingular = totalPessoas === 1 ? ' pessoas ' : ' pessoa ';
+    var totalPessoas = carro.quantidadePessoas + numeroPessoas;
+    var vagas = carro.assentos - carro.quantidadePessoas;
+
+    if(carro.quantidadePessoas === carro.assentos && totalPessoas >= carro.assentos){
+        return 'O carro já está lotado';
+    }
+
+    if( totalPessoas > carro.assentos){
+        pluralOuSingular = vagas === 1? ' pessoa ' : ' pessoas '; 
+        return 'Só cabem mais ' + vagas + pluralOuSingular;
+    }
+
+
+    carro.quantidadePessoas += numeroPessoas;
+    return 'Já temos ' + totalPessoas + pluralOuSingular +  'no carro!';
+}
 
 carro.adicionarPessoas = function(quantidade){
     if(carro.quantidadePessoas < carro.assentos)
