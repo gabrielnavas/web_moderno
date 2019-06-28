@@ -9,6 +9,7 @@ const volvo = {
 }
 
 
+console.log(ferrari.prototype) 
 console.log(ferrari.__proto__)
 console.log(volvo.__proto__)
 
@@ -22,4 +23,4 @@ console.log(typeof Object.prototype)
 console.log(typeof ferrari.__proto__)
 
 function myFunc(){}
-console.log(myFunc.prototype)
+console.log(myFunc.prototype)   
