@@ -1,3 +1,7 @@
+/*
+    OBJETVO DO REDUCE É AGREGAR TODOS VALORES EM UM SÓ. 
+*/
+
 const alunos = [
     { nome: 'Gabriel', nota: 8.22, bolsista: true},
     { nome: 'Rafael', nota: 6.42, bolsista: false},
