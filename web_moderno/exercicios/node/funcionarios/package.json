@@ -1,0 +1,19 @@
+{
+  "name": "funcionarios",
+  "version": "1.0.0",
+  "description": "",
+  "main": "outro",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "asdasdasd",
+    "asdasdasd",
+    "asdasd"
+  ],
+  "author": "gabriel",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.0"
+  }
+}
