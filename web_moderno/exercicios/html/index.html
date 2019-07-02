@@ -5,28 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Exercícios HTML</title>
+
+    <style>
+        #conteudo {
+            padding: 30px 0px;
+        }
+    </style>
 </head>
 <body>
     <header>
         Exercícios HTML
     </header>
+
     <nav>
-        <a href="exercicios/test.html">00 - Teste</a>
+        <a href wm-nav="exercicios/test.html">00 - Teste</a> |
+        <a href wm-nav="exercicios/texto1.html">01 - Texto 1</a>
+        <a href wm-nav="exercicios/texto2.html">02 - Texto 2</a>
     </nav>
 
     <section id="conteudo"></section>
+    
     <footer>Curso de Web moderno</footer>
 
     <script>
-        document.querySelectorAll('a').forEach(link =>{
-            const conteudo = document.getElementById('conteudo');
 
+        //forEach em todos que tenha propriedade wm-nav dessa página
+        document.querySelectorAll('[wm-nav]').forEach( link =>{
+            const conteudo = document.getElementById('conteudo'); //pegar o elemento conteudo do html
+
+            // quando clicar no link chama essa funcao
             link.onclick = function(e){
-                e.preventDefault();
+                e.preventDefault(); //prever comportamento padrao
 
-                fetch(link.href)
-                    .then(resp => resp.text())
-                    .then(html => conteudo.innerHTML = html);
+                //fetch => chamada ajax (que roda em cima de promisis), pegando o atributo wm-nav
+                fetch(link.getAttribute('wm-nav'))
+                    .then(resp => resp.text()) //peguei o texto (html) da página
+                    .then(html => conteudo.innerHTML = html) //coloquei o html dentro do conteudo
+                    //.then(texto => console.log(texto))//exibi o texto no console (so pra ver)
             }
         });
 
