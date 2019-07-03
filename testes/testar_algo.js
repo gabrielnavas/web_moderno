@@ -1,32 +1,8 @@
-const Node = function(info){
-    return {
-        prox: null,
-        info:info
-    };
-};
+function teste(i) {
+    if(i < 10)
+        console.log('numero: ' + i++)
 
-function inserir(node, info){
-    if(node === null)
-        node = new Node(info);
-    else
-        inserir(node.prox);    
+    setTimeout(() => teste(i), 1000)
 }
 
-
-function exibir(node){
-    if(node !== null){
-        console.log(node.info)
-        exibir(node.prox);
-    }
-}
-
-let node = new Node(2);
-
-inserir(node, 1);
-
-inserir(node, 1);
-inserir(node, 1);
-inserir(node, 1);
-inserir(node, 1);
-
-exibir(node);
+teste(0)

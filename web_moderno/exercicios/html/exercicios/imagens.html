@@ -1,0 +1,149 @@
+<div wm-slider>
+
+    <p>
+        <img src="http://files.cod3r.com.br/curso-web/imagem1.jpg" 
+            alt="Muro da Cidade"
+            width="513" height="342"
+            title="Muro da cidade por Tarso Bessa">
+                
+    </p>
+    
+    <p>
+        <img src="http://files.cod3r.com.br/curso-web/imagem2.gif"
+            alt="Intro cod3r" height="342"
+        >
+    </p>
+    
+    <p class="circular">
+        <img src="http://files.cod3r.com.br/curso-web/imagem3.png"
+            alt="Rio de Janeiro" height="342"
+        >
+    </p>
+    
+    <p class="texto">
+        <img src="http://files.cod3r.com.br/curso-web/avatar.jpg"
+            alt="Avatar" height="50" align="left"
+        >
+        Bitcoin (símbolo: ₿; abrev ISO 4217: BTC ou XBT) é uma criptomoeda descentralizada, 
+        sendo uma forma de dinheiro eletrônico. Inicialmente apresentada em 2008 na lista de discussão 
+        The Cryptography Mailing[11] por um programador ou grupo de programadores sob o pseudônimo
+        Satoshi Nakamoto,[12][13][14][15] é considerada a primeira moeda digital mundial descentralizada,
+        [16] constituindo um sistema econômico alternativo (peer-to-peer electronic cash system), e
+        responsável pelo ressurgimento do sistema bancário livre.
+    </p>
+    
+    <p class="cidade"></p>
+    
+    <p>
+        <picture>
+            <!-- Condicional, caso a tela nao tiver 600px será exibido a próxima img -->
+            <source srcset="http://files.cod3r.com.br/curso-web/logo-larga.png"
+                    media="(min-width: 600px)">
+            <img src="http://files.cod3r.com.br/curso-web/logo-estreita.png" alt="Logo">        
+        </picture>
+    </p>
+            
+</div>
+
+<script>
+    //MINHA IMPLEMENTACAO, NAO FUNCIONOU :(
+    const rodar = () => {
+        const [pixelFinal, pixelInicial, velMoverPhoto] = [1, 500, 1000]
+
+        const paragrafos = document.getElementsByTagName('p')
+
+        for(paragrafo of paragrafos){
+            paragrafo.style.display = 'inline' 
+            
+            let pixel = pixelInicial
+            while(pixel < pixelFinal){
+                setInterval(() => {
+                    paragrafo.style.left = pixel
+
+                    pixel++;
+                    if(pixel === pixelFinal)
+                        return
+                }, velMoverPhoto)
+            }
+            
+            paragrafo.style.display = 'none' 
+        }
+    }
+    // rodar()
+
+
+    //IMPLEMENTACAO PROF
+    function mover(elem, inicio, fim, passo, callback) {
+        const novoInicio = inicio - passo
+        if(novoInicio >= fim) {
+            elem.style.left = novoInicio + 'px'  
+            setTimeout(() => mover(elem, novoInicio, fim, passo, callback), 7) // A cada 7 segundo é chamadas a funcao callback que eh chamada ela mesma
+        } else {
+            callback()
+        }
+    }
+
+    // const p = document.querySelector('[wm-slider] > p')
+    // p.style.display = 'block'
+    // mover(p, 1500, -520, 5, () => {
+    //     console.log('Terminou!!!')
+    // })
+    
+    function slider() {
+        //pegar todos elementos 'p' que tenha propriedade wm-slider 
+        const elementos = document.querySelectorAll('[wm-slider] > p') //isso retorna um nodelist
+        const slides = Array.from(elementos) // transforma o nodelist em array
+        exibirSlide(slides, slides[0])
+    }
+
+    function exibirSlide(slides, slide) {
+        slide.style.display = 'block'
+
+        const inicio = innerWidth //inner width largura interna
+        const fim = -slide.clientWidth //tamanho do slide
+
+        slide.style.pixel = `${inicio}px`
+
+        mover(slide, inicio, fim, 5, () => {
+            slide.style.display = 'none'
+            exibirSlide(slides, getProximo(slides, slide))
+        })
+    }
+
+    function getProximo(lista, atual) {
+        const i = lista.indexOf(atual) + 1
+        return i < lista.length ? lista[i] : lista[0]
+    }
+
+    slider()
+    
+</script>
+
+<style>
+    p {
+        position: absolute;
+        display: none;
+    }
+
+    .circular {
+        width: 513px;
+        background-color: #444
+    }
+
+    .texto {
+        width: 400px;
+    }
+
+    .texto img {
+        margin-right: 12px
+    }
+
+    .cidade {
+        width: 513px;
+        height: 342px;
+        background-image: url("http://files.cod3r.com.br/curso-web/imagem4.jpg");
+        background-position: center; 
+        background-repeat: no-repeat;
+        background-size: 200%; /*zoom*/
+    }
+</style>
