@@ -1,0 +1,41 @@
+<h1>Formulário</h1>
+
+
+<!-- 
+    action = link para onde estou fazendo a requisição
+    method = Método usado para a requisicao get, set..etc
+-->
+<form action="http://localhost:3003/usuarios" method="POST">
+    <input type="text" name="name">
+    <input type="password" name="senha">
+    <textarea name="bio" cols="30" rows="10"></textarea>
+    
+    <div>
+        <!-- O que será enviado para o servidor é o value="" -->
+        <input type="radio" name="tipo" value="admin"> Admin 
+        <input type="radio" name="tipo" value="regular"> Regular
+        <input type="radio" name="tipo" value="regular"> Regular
+    
+    </div>
+    
+    <div>
+        <input type="checkbox" name="ativo">Ativo
+    </div>
+
+    <button>Incluir</button>
+</form>
+
+
+<style>
+    input,
+    textarea,
+    select {
+        display: block;
+        margin: 10px; 
+    }
+
+    input[type=radio],
+    input[type=checkbox] {
+        display: inline;
+    }
+</style>

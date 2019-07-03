@@ -1,0 +1,116 @@
+<h1>Projeto</h1>
+
+<ul class="tree">
+    <li>
+        <span wm-folder>backend</span>
+        <ul>
+            <li>
+                <span wm-folder>app</span>
+                <ul>
+                    <li>produto.js</li>
+                    <li>usuario.js</li>
+                    <li>vendas.js</li>
+                </ul>
+            </li>
+            <li>
+                <span wm-folder>config</span>
+                <ul>
+                    <li>banco.js</li>
+                    <li>rotas.js</li>
+                    <li>servidor.js</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <span wm-folder>frontend</span>
+        <ul>
+            <li>
+                <span wm-folder>public</span>
+                <ul>
+                    <li>app.css</li>
+                    <li>app.js</li>
+                    <li>index.html</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+
+<script>
+    document.querySelectorAll('[wm-folder]').forEach( folder => {
+        folder.onclick = function(e) {
+            // debugger
+            // console.log('teste')
+
+            const ul = folder.nextElementSibling //proximo elemento irmao 
+            const display = ul.style.display
+            ul.style.display = display === 'none' ? 'block' : 'none'
+
+            // console.log(ul)
+        }
+    } )
+</script>
+
+<!-- <link rel="stylesheet" href="http://files.cod3r.com.br/curso-web/tree.css"> -->
+<style>
+    .tree * {
+        list-style-type: none;
+    }
+
+    .tree li a {
+        color: #222;
+        text-decoration: none;
+        font-size: 18px;
+    }
+
+
+    .tree ul {
+        padding-left: 25px;
+    }
+
+    ul.tree, .tree li {
+        padding-left: 0px;
+        padding-top: 5px;
+    }
+
+    ul.tree, ul.tree ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    } 
+
+    ul.tree ul {
+        margin-left: 10px;
+    }
+
+    ul.tree li {
+        margin: 0;
+        margin: 0 9px;
+        padding: 0 7px;
+        border-left:1px solid rgb(100,100,100);
+
+    }
+
+    ul.tree li:last-child {
+        border-left:none;
+    }
+
+    ul.tree li:before {
+        position:relative;
+        top:-0.3em;
+        height:1em;
+        width:12px;
+        color:white;
+        border-bottom:1px solid rgb(100,100,100);
+        content:"";
+        display:inline-block;
+        left:-7px;
+    }
+
+    ul.tree li:last-child:before {
+        border-left:1px solid rgb(100,100,100);   
+    }
+
+</style>
