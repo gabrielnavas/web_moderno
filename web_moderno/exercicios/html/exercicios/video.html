@@ -1,0 +1,98 @@
+ <!-- 
+    constrols mostra os controles do vídeo 
+    autoplay starta o vídeo automaticamente
+    constrolsList noDownload diz que nao eu nao consigo fazer o download
+
+-->
+
+<video id="meuVideo" width="800" height="450" controls autoplay constrolsList="noDownload">
+    <source src="http://files.cod3r.com.br/curso-web/video.mp4" type="video/mp4">
+    Seu browser não suporta a tag vídeo.
+</video>
+
+<div wm-progresso="meuVideo" class="progresso">
+    <div></div>
+</div>
+
+<div>
+    <button wm-play="meuVideo">Play</button>
+    <button wm-pause="meuVideo">Pause</button>
+</div>
+
+<script>
+    
+    function minhaSolucaoGabriel(){
+        const video = document.getElementById('meuVideo')
+        let videoPlay = false
+
+        const playVideo = () => { 
+            video.play()
+            videoPlay = true
+            mudarBarraDuracao()
+        }
+        const pauseVideo = () => {
+            videoPlay = false
+            video.pause()
+        }
+        
+        const timeBarraChange = 1000
+        
+        const addEventoPlayBotao = () => {
+            const btPlay = Array.from(document.querySelectorAll('[wm-play]'))
+            btPlay.forEach( bt => bt.onclick = playVideo )
+        }
+
+        const addEventoPauseBotao = () => {
+            const btPause = Array.from(document.querySelectorAll('[wm-pause]'))
+            btPause.forEach( bt => bt.onclick = pauseVideo )
+        }
+        
+        const changePorcentagemBarraDuracao = porcentagem => {
+            
+        }
+
+        
+        const mudarBarraDuracao = () => {
+            const tempoTotal = video.duration
+            const tempoAtual = video.currentTime
+            const porcentagem = (tempoAtual*100) / tempoTotal
+            
+            // changePorcentagemBarraDuracao(porcentagem.toFixed(2))
+            
+            console.log(tempoTotal, tempoAtual, porcentagem, video.duration)
+            if(porcentagem < 100.00 && videoPlay){
+                const barraPorcentagem = document.querySelectorAll('[wm-progresso]')
+                barraPorcentagem.forEach ( barra => barra.style.width = `${porcentagem}%` )
+                
+                console.log(porcentagem)
+                setTimeout( () => mudarBarraDuracao(), timeBarraChange)
+            }
+        }
+
+        addEventoPlayBotao()
+        addEventoPauseBotao()
+        
+    }
+    minhaSolucaoGabriel()
+    
+
+    //SOLUÇÃO PROFESSOR
+</script>
+
+<style>
+    .progresso {
+        height: 20px;
+        width: 500px; 
+        border: solid 1px #444;
+        margin: 20px
+    }
+
+    .progresso > div {
+        background-color: red;
+        color: #fff;
+        height: 100%;
+        text-align: 'right';
+        font-size: 14px;
+        width: 0%;
+    }
+</style>

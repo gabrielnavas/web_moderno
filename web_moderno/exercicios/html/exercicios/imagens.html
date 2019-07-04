@@ -72,6 +72,9 @@
     // rodar()
 
 
+
+
+
     //IMPLEMENTACAO PROF
     function mover(elem, inicio, fim, passo, callback) {
         const novoInicio = inicio - passo
@@ -99,7 +102,7 @@
     function exibirSlide(slides, slide) {
         slide.style.display = 'block'
 
-        const inicio = innerWidth //inner width largura interna
+        const inicio = innerWidth //inner width largura interna da tela
         const fim = -slide.clientWidth //tamanho do slide
 
         slide.style.pixel = `${inicio}px`
