@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Origem CSS: Externo, Interno e Inline</title>
+    <style>
+        /*A prioridade de carregamento é por processamento de linha*/
+        body {
+            background-color: aquamarine;
+        }
+        </style>
+    <link rel="stylesheet" href="./css/externo.css">
+</head>
+
+<!-- 
+    css inline tem o maior peso, mesmo mudando as linhas para ser
+    processadas primeiro
+-->
+<body style="background-color: coral;">
+    <h1>E agora?</h1>
+</body>
+
+</html>

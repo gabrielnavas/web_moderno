@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Selectors</title>
+    <link rel="stylesheet" href="css/tag.css">
+    <style>
+        /* Todos */
+        * {
+            color: #234;
+            background-color: #ff9;
+        }
+
+        /* ID */
+        #aprovados {
+            font-size: bold;
+            color: #415;
+            background-color: #f77;
+        }
+
+        /* somente div que esta dentro de aninhado */
+        #aninhado > div {
+            background-color: red;
+        }
+
+        /* section que esta dentro de aninhado */
+        #aninhado section {
+            background-color: #415
+        }
+
+        /* irmaos adjacentes, pega ul que esta logo apos o p */
+        p + ul {
+            background-color: #0a2
+        }
+
+        /* irmaos adjacentes, pega ol que tenha um pai p */
+        p ~ ol {
+            background-color: cyan
+        }
+
+        /* pega tag que tenha atributos feira */
+        [feira] {
+            background-color: green;
+        }
+
+        /* pega tag que tenha atributos feira que tenha o valor casa */
+        [feira=casa] {
+            background-color: lightgreen;
+        }
+
+        /* pega tag que tenha feira que contem possiveis valores igual a casa */
+        [feira~=casa] {
+            background-color: lightgreen;
+        }
+
+        /* pega tag que tenha feira que contem possiveis valores igual a sa, (igual like em db) */
+        [feira*=sa] {
+            background-color: lightgreen;
+        }
+        
+        /* pega span que seja filho de alguem e que esteja em (x) posicao 
+            ou seja, pegou o segundo elemento que fica dentro de todos spans
+            PS, comeca do 1*/
+        span:nth-child(2) {
+            background-color: magenta;
+        }
+
+
+        /* dentro de uma tag span no caso pegue os filhos impares/pares 
+            usar numa tabela por exemplo, cores zebradas
+        */
+        section > :nth-child(even), ul, p { /*even = par, odd=impar*/
+            color: cyan;
+            font-weight: bold; 
+        }
+
+        /*posso colocar para ul, p entre outros tb*/
+        section > :nth-child(even), ul, p { /*even = par, odd=impar*/
+            color: rgb(0, 0, 0);
+            font-weight: bold; 
+        }
+
+        /*ou posso acessar outro elemento detro do filho que esta na section, no caso o label*/
+        section > :nth-child(even) label { /*even = par, odd=impar*/
+            color: rgb(243, 255, 138);
+            font-weight: bold; 
+        }
+
+        /* pega o segundo ou x elemento que é um span, aonde esta dentro de uma section */
+        section > span:nth-child(even) label { /*even = par, odd=impar*/
+            color: rgb(255, 139, 139);
+            font-weight: bold; 
+        }
+    </style>
+</head>
+
+<body>
+    <div class='tag'>
+        <div class='tag'>
+            <p class='tag'>1</p>
+            <ul class='tag' feira='casa'>
+                <li>Arroz</li>
+                <li>Feijão</li>
+            </ul>
+            <ul class='tag' feira='escritorio empresa'>
+                <li>Café</li>
+                <li>Água</li>
+            </ul>
+            <ol id='aprovados' class='tag'>
+                <li>Maria</li>
+                <li>Pedro</li>
+                <li>Ana</li>
+            </ol>
+            <div id='aninhado' class='tag'>
+                <div class="tag">
+                    <section class='tag'>
+                        <span class='tag'>1</span>
+                        <p class='tag'>2</p>
+                        <span class='tag'>3</span>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/tag.js"></script>
+</body>
+
+</html>
