@@ -12,6 +12,22 @@
             border: solid 5px;
             display: none;
         }
+
+        @media (max-width: 600px) {
+            .muito-pequeno { display: block; }
+        }
+
+        /* portrait = retrato, landscape = paisagem */
+        /* quando tem mais de uma opcao, funciona como um || 'ou' */
+        @media (max-width: 1000px), (orientation: landscape) {
+            .muito-pequeno { display: block; }
+            /* .pequeno-retrato { display: block; } */
+        }
+
+        /* and && 'e' */
+        @media (min-width: 500px) and (max-width: 1000px) {
+            .intervalo { display: block; }
+        }
     </style>
 </head>
 <body>

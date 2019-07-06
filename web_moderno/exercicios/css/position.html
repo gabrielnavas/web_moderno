@@ -5,7 +5,69 @@
     <meta charset="UTF-8">
     <title>Position</title>
     <style>
-        /* ... */
+        div {
+            font-size: 60px;
+            padding: 30px;
+            border: solid 5px #222;
+        }
+
+        /* nao sai do lugar (default) */
+        .static {
+            top: 100px;
+            left: 100px;
+            background-color: steelblue;
+        }
+
+        /* fixado mesmo se rolar a pagina */
+        .fixed {
+            position: fixed;
+            bottom: 30px;
+            right: 0px;
+            background-color: tomato;
+        }
+
+        /* relativo ao elemento anterior */
+        .relative1 {
+            position: relative;
+            top: 5px;
+            left: 50px;
+            background-color: orange;
+        }
+
+        /*  em relacao a div pai, colocar em qualquer lugar */
+        .absolute1 {
+            position: absolute;
+            top: 75px;
+            left: 120px;
+            background-color: #222;
+        }
+
+        /* relativo ao elemento anterior */
+        .relative2 {
+            position: relative;
+            left: 250px;
+            top: 2000px;
+            width: 200px;
+            height: 200px;;
+            background-color: slategray;
+        }
+
+
+        /* em relacao a div pai, se posiciona em qualquer lugar */
+        .absolute2 {
+            position: absolute;
+            left: 30px;
+            top: -25px;
+            background-color: blueviolet
+        }
+
+        /* ao rolar a página ele fica posicionado na tela num lugar definido*/
+        .sticky {
+            position: -webkit-sticky;
+            position: sticky;
+            background-color: #777;
+            top: 2px; 
+        }
     </style>
 </head>
 

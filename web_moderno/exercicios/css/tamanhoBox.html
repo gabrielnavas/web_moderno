@@ -4,8 +4,26 @@
     <meta charset="UTF-8">
     <title>Tamanho Box</title>
     <style>
+        * {
+            box-sizing: content-box; /*default*/
+            box-sizing: border-box; 
+            /*considera 100% ali em cima junto com o padding e border,
+            ou seja, paddin e border é um só em relação a tamanho na tela.
+            como isso esta global, será aplicado para todas tags filhas.*/
+       
+        }
+
         body {
             font-size: 45px;
+            margin: 0;
+        }
+
+        div {
+            background-color: deepskyblue;
+            width: 100%px;
+            height: 300px;
+            padding: 100px;
+            border: solid 20px;         
         }
     </style>
 </head>
