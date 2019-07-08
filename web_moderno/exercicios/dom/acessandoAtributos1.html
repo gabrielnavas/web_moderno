@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Acessando Atributos #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class='conteudo exercicio'>
+    <div>
+        <a href='https://www.cod3r.com.br'>Cod3r</a>
+    </div>
+    <div id='primeiro'>
+        <img src='http://files.cod3r.com.br/curso-web/logo-estreita.png' alt='logo'>
+    </div>
+    <script>
+        // const img = document.querySelector('img') seleciona uma tag
+        // const img = document.querySelector('.img') seleciona uma classe
+        // const img = document.querySelector('#img') seleciona um id
+        // const img = document.querySelector('[img]') seleciona um propriedade
+
+        const img = document.querySelector('img')
+        console.log('getAttribute', img.getAttribute('src')) //pega o que esta no atributo, atraves de uma variavel por exemplo
+        console.log('src', img.src)
+        console.log('[src]', img['src'])
+        console.log('alt', img.alt)
+    </script>
+</body>
+
+</html>

@@ -16,11 +16,52 @@
         
         div {
             display: flex;
-            align-items: center;
-            justify-content: center;
+            align-items: center; /*alinha itens dentro dessa div*/
+            justify-content: center; /*alinha os conteudos*/
             font-size: 30px;
             border: solid 5px dodgerblue;
             background: #fff;
+        }
+
+        body {
+            /* No grid não existe essa definição de direção em relação do flex-box*/
+            display: grid;
+
+            /*1 coluna  2 coluna*/
+            grid-template-columns: 50% 50% 50% 50%; /*qual template??*/
+            
+            /* terá 4x3 grids de 8.33% */
+            grid-template-columns: repeat(4, 8.33% 8.33% 8.33%);
+            grid-template-columns: repeat(4, 8.33%);
+            grid-template-columns: repeat(10, 100px) 500px 200px;
+            grid-template-columns: 200px 20% 1fr;
+            grid-template-columns: 3fr 6fr 3fr;
+
+            grid-template-rows: 50% 25% 12.5% 12.5%;
+            grid-template-rows: 100px 1fr;
+            grid-template-rows: 100px auto;
+        }
+
+        .d8 {
+            grid-column-start: 2;
+            grid-column-end: 4;
+            grid-column-end: span 2;
+            /* grid-row-start: 3; */
+            grid-row-start: 3;
+            grid-row-end: 5;
+            grid-row-end: span 2;
+        }
+
+        .d10,
+        .d11 {
+            /* podem se sobrepor */
+            grid-column-start: 1;
+            grid-column-end:3;
+            grid-row-start: 5;
+        }
+
+        .d10 {
+            z-index: 1 ; /* -1 fica atras o d10 pois é profundidade*/
         }
     </style>
 </head>

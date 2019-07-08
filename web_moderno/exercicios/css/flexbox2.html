@@ -6,7 +6,48 @@
     <title>Flexbox #02</title>
     <link rel="stylesheet" href="css/tag.css">
     <style>
-        /* ... */
+        div {
+            border: solid 5px dodgerblue;
+            font-size: 40px;
+        }
+
+        .flex-container div{
+            box-sizing: border-box;
+        }
+
+        .flex-container {
+            display: flex;
+            height: 300px;
+            width: 600px;
+        }
+
+        .flex-container div:nth-child(4){
+            background-color: indianred;
+            order: 1;
+            order: 0;
+            order: -1;
+            align-self: flex-start;
+            align-self: flex-end;
+            align-self: center;
+            align-self: stretch;
+        }
+
+        .flex-container div {
+            width: 100px;
+            flex-grow: 1; /* dar peso para os blocos crescendo de modo sendo multiplicado cada um com seus valores*/
+        }
+
+        /* pego o terceiro elemento definido no HTML, não o que esta na tela definidamente */
+        .flex-container div:nth-child(3) {
+            flex-grow: 3;
+            /*com isso foi ajustado dentro da div, só que o 3 ficou maior.*/
+        }
+
+        .flex-container {
+            width: 300px;
+            flex-shrink: 5; /*contrário do flex-glow, ele en*/
+        }
+
     </style>
 </head>
 

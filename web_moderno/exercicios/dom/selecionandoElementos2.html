@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Selecionar Elementos #02</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body class="conteudo exercicio">
+    
+    <div id="primeiro">#primeiro</div>
+    <div wb-attrib>Segundo</div>
+    <div class="terceiro ultimo"><span wb-attrib>.terceiro .ultimo</span></div>
+    
+    <script>              
+        // aqui posso selecionar qualquer coisa. qualquer seletor css ou html
+        // querySelectorAll() 
+        // querySelector()
+        // É PRECISO TRANFORMAR PARA ARRAY UM QUERYSELECTOR() PARA USAR MAP, FILTER ETC...
+        const todasDivs = document.querySelectorAll('div')
+        console.log(todasDivs)
+
+
+        document.querySelector('#primeiro').classList.add('destaque')
+
+        const selecionar = seletor => {
+            // nodelist, tem que transformar num array 
+            document.querySelectorAll(seletor).forEach(e => {
+                e.classList.add('destaque')
+            })
+        }
+
+        const deselecionar = seletor => {
+            document.querySelectorAll(seletor).forEach( e => {
+                e.classList.remove('destaque')
+            })
+        }
+
+        selecionar('div')
+
+        deselecionar('*') // pode usar um seletor universal
+        selecionar('.terceiro.ultimo') //quando utiliza mais de uma classe coloca junto
+        
+        deselecionar('*')
+        selecionar(':not(#primeiro)') //selecionar todos, menos o #primeiro
+        
+        deselecionar('*')
+        selecionar(':nth-child(1)') //seleciona os primeiros filhos de todos elementos
+
+        deselecionar('*')
+        selecionar('span:nth-of-type(1)') //seleciona os primeiros filhos de todos elementos do tipo div
+
+        deselecionar('*')
+        selecionar('[wb-attrib]') //selecionar atraves de um atributo de uma tab
+    </script>
+</body>
+</html>
