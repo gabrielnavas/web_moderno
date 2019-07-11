@@ -11,8 +11,26 @@
     <div>
         <p>Texto Inicial</p>
     </div>
+
+
     <script>
-        // ...
+        const div = document.querySelector('div')
+        div.innerHTML = 'Texto Alterado' //coloca um novo texto dentro
+        // div.outerHTML = 'Texto Alterado' //substitui o elemento pelo texto, ou seja, a div some e o texto fica no lugar
+        div.insertAdjacentHTML('beforebegin', '<p> Antes do Início</p>') //insere antes da div algo que nesse caso é um paragrafo com um texto dentro 
+        div.insertAdjacentHTML('afterbegin', '<p>Depois do Início</p>') //coloca dentro da div o paragrafo so que no antes
+        div.insertAdjacentHTML('beforeend', '<p>Antes do Fim</p>') //coloca dentro da div o paragrafo so que no antes
+        div.insertAdjacentHTML('afterend', '<p>Depois do Fim</p>') //coloca dentro da div o paragrafo so que no antes
+
+        // somente texto (sem tags)
+        console.log(div.innerHTML) //retorna o texto com as tags
+        console.log(div.innerText) //retorna o texto sem as tags
+
+        //tem uns '\n' no div.innerText, se for usar tem q tratar
+        for(let ch of div.innerText){
+            if(ch === '\n')
+                console.log('sim')
+        }
     </script>
 </body>
 

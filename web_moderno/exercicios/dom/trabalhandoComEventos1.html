@@ -8,10 +8,37 @@
 </head>
 
 <body class="conteudo exercicio">
+
     <div>
-        <a href="https://google.com.br">Google</a>
+        <!-- onclick="navegarEm5s(event)" -->
+        <a espera-um-pouco href="https://google.com.br"
+            >Google</a>
     </div>
+    
     <script>
-        // ...
+        function navegarEm5s(e) {
+            e.preventDefault() //previnir que o comportamento ocorra
+            console.log('Saindo em 5s...')
+            // console.log(e)
+            setTimeout(() => {
+                const link = e.target //pego a tag a
+                window.location.href = link.href //passo o href para o endereco atual do navegador 
+            }, 5000)
+        }   
+
+
+
+
+        //uma outra forma de chamar a funcao on click é a forma implicita:
+        // const a =document.querySelector('a')
+        // a.onclick = navegarEm5s;
+
+
+
+
+        //ou da pra fazer assim de forma elegante
+        //MELHOR FORMA!!!!!!!!!!!!!!!!!!!!!
+        const a = document.querySelector('[espera-um-pouco]')
+        a.onclick = navegarEm5s
     </script>
 </body>

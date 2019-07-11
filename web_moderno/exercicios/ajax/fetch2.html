@@ -22,13 +22,52 @@
 
 <body class="conteudo exercicio">
     <h1>Formulário Via Fetch</h1>
+    
     <form name="usuarioForm" action="formulario" method="post">
         <input type="text" name="nome" placeholder="Nome..." />
         <input type="text" name="sobrenome" placeholder="Sobrenome..." />
         <button>Salvar</button>
     </form>
+    
     <div id="resultado"></div>
+    
     <script>
-        // ...
+
+        // Consigo pegar esse usuarioForm pois esta como name ali em form
+        // ali clicar em submit, essa funcao será chamada
+        document.usuarioForm.onsubmit = async e => {
+            e.preventDefault()
+
+            const form = e.target
+            const data = new FormData(form) //transformo o formulario em dados
+            // exemplo é data.append('ajax', true) dando a possibidade de adicionar uma propriedade 'ajax' com 'true'
+            data.append('ajax', true)
+
+            //config pra funcao fetch
+            const options = {
+                method: form.method,
+                body: new URLSearchParams(data) //dados do form
+            }
+
+            const resultado = document.getElementById('resultado')
+            // fetch(form.action, options)
+            //     .then(resp => resp.json())
+            //     .then(json => {
+            //         resultado.innerHTML = JSON.stringify(json)
+            //     })
+            //     .catch(e => {
+            //         //tratamento de erro
+            //         resultado.innerHTMl = e
+            //     })
+            
+            //mais organizado
+            try {
+                const resp = await fetch(form.action, options)
+                const json = await resp.json()
+                resultado.innerHTML = JSON.stringify(json)
+            } catch (e) {
+                resultado.innerHTML = e
+            }
+        }
     </script>
 </body>

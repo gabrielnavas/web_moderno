@@ -8,11 +8,43 @@
 </head>
 
 <body class='conteudo exercicio'>
+    
     <div>
         Classes
     </div>
+    
     <script>
-        // ...
+        //PEGER LISTA DE CLASSES DE UMA TAG
+        const div = document.querySelector('div')
+        const classes = div.classList
+        classes.add('destaque')    
+        classes.remove('destaque')
+        classes.toggle('destaque') //se nao existe ele adiciona. se existe ele remove
+        console.log(classes.contains('destaque')) //verifica se existe uma classe na tag
+        console.log(classes.length) //quantidade de classes
+        classes.toggle('destaque') //removi a classe
+        console.log(classes.length) //agora tem 0 classe
+
+
+        //add pra teste
+        classes.add('destaque1')
+        classes.add('destaque2')
+        console.log(classes.length)
+
+
+        //da pra iterar as classses
+        for(let c of classes) {
+            console.log(c)
+        }
+
+        //ou também usar foreach()
+        classes.forEach( classe => console.log(classe))
+        
+        //classe.map...reduce...precisa tranformar
+        console.log(
+            Array.from(classes)
+                .map (classe => 
+                    classe = classe+' modificado com map'))
     </script>
 </body>
 

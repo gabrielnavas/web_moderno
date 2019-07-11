@@ -8,16 +8,44 @@
 </head>
 
 <body class='conteudo exercicio'>
+
+
     <div>
-        <label for="compras">Compras</label>
-        <ul id="compras" destino='escritório' data-urgencia="5">
+        <label for="compras">Compras</label> <!-- for é para referenciar ao ul de baixo id="compras"-->
+        <ul id="compras" destino='escritório' data-urgencia="5" data-blabla='opa'>
             <li>Café</li>
             <li>Água</li>
             <li>Copo Descartável</li>
         </ul>
     </div>
+
+
     <script>
-        // ...
+        const lista = document.querySelector('div ul[destino="escritório"]')
+        // const lista = document.querySelector('#compras') da no mesmo que o de cima
+
+        console.log('Elemento "ul"................')
+        console.log('childNodes', lista.childNodes)
+        console.log('destino', lista.detino) //nao achou o valor da propriedade escritorio (propriedade personalizada)
+        console.log('getAttribute', lista.getAttribute('destino')) //agoura consegui pegar o valor da propriedade
+        console.log('hasAttribute', lista.hasAttribute('destino')) //verifico se na lista existe um attributo/propriedade 'destino'
+        lista.setAttribute('destino', 'empresa') //atributo destino recebe o valor 'empresa'
+        lista.setAttribute('status', 'aberto') //caso nao exista o atributo 'status' na tag lista é adicionado o atributo status com o valor 'aberto'
+        lista.removeAttribute('destino') //remover attributo 'destino da lista'
+
+        //atributos iniciando com data- são tratados diferentes
+        console.log(lista.dataset) //exibindo todas as datas da tag
+        console.log(lista.dataset.urgencia) //exibir um elemento desse dataset)
+        console.log(lista.dataset.blabla) //exibir outro elemento do dataset 
+        lista.dataset.urgencia = 4 //alterar o valor de um dataset
+        console.log(lista.getAttribute('data-urgencia')) //outra forma de pegar um elemento do dataset
+
+        // CUIDADO
+        // para pegar o atributo for do label tem algumas regras.
+        const label = document.querySelector('label')
+        console.log(label.for) //nao funciona
+        console.log(label.htmlFor) //assim funciona
+        console.log(label.getAttribute('htmlFor')) //assim também
     </script>
 </body>
 

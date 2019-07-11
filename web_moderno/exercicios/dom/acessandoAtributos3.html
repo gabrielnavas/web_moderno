@@ -16,7 +16,19 @@
         </ul>
     </div>
     <script>
-        // ...
+        const lista = document.querySelector('#compras') //forma eficiente/direta
+
+        // SOMENTE LEITURA 
+        // nao tem como atribuir
+        //(bem fácil) para qualquer tag
+        console.log(lista.attributes)
+        console.log(lista.attributes[0])
+        console.log(lista.attributes.id)
+        console.log(lista.attributes[1])
+        console.log(lista.attributes.destino)
+        console.log(lista.attributes[2])
+        console.log(lista.attributes['data-urgencia'])
+        lista.attributes.destino = 7
     </script>
 </body>
 
