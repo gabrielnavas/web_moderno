@@ -8,10 +8,10 @@ require('./gulpTask/servidor')
 
 gulp.task('default', () => {
     if(util.env.production) {
-        // sequence('deps', 'app') //usando para processar essas task sequencial    
-        gulp.start('deps', 'app') //modo default assincrono
+        sequence('deps', 'app') //usando para processar essas task sequencial    
+        // gulp.start('deps', 'app') //modo default assincrono
     } else {
-        // sequence('deps', 'app', 'servidor') //usando para processar essas task sequencial
-        gulp.start('deps', 'app', 'servidor') //modo default assincrono
+        sequence('deps', 'app', 'servidor') //usando para processar essas task sequencial
+        // gulp.start('deps', 'app', 'servidor') //modo default assincrono
     }
 })
