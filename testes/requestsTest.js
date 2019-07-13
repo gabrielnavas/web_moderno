@@ -1,11 +1,16 @@
-var request = require("request");
+const request = require("request");
 
-request({
-	uri: "http://www.sitepoint.com",
-	}, 
-	function(error, response, body) {
-	  console.log(body);
-	}
-})
 
+function exemplo_requisicao_default() {
+
+    request({ uri: "http://www.unoeste.br/" }, 
+        (error, response, body)=> {
+            console.log(body);
+        }
+    )
+}
+
+function tentar_auth_form() {
+
+}
 
