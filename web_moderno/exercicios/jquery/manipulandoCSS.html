@@ -15,6 +15,22 @@
     <div id='div3'>3</div>
     <div id='resultado'></div>
     <script>
-        // ...
+
+        //manipular css
+        const fonte = $('#div1').css('font-family')
+        $('#resultado').html(`Fonte é ${fonte}`)
+
+        $('#div1').css('font-size', '3em')
+        $('#div1').css({'font-size': '3.5em', 'color': 'yellow'} )
+        $('#div1').css('font-size', function() {
+            return `${2*2}`
+        })
+
+        //manipular classes
+        $('#div2').addClass('destaque')
+
+        //existe algo nas classes?
+        const temClass = $('#div2').hasClass('destaque')
+        $('#resultado').html(`Tem classe? ${temClass}`)
     </script>
 </body>
