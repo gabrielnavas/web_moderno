@@ -23,7 +23,7 @@
         $('#div1').css('font-size', '3em')
         $('#div1').css({'font-size': '3.5em', 'color': 'yellow'} )
         $('#div1').css('font-size', function() {
-            return `${2*2}`
+            return `${2*2}` //caso específico, usar callback
         })
 
         //manipular classes
@@ -32,5 +32,9 @@
         //existe algo nas classes?
         const temClass = $('#div2').hasClass('destaque')
         $('#resultado').html(`Tem classe? ${temClass}`)
+
+        $('#div2').removeClass('destaque') //remove class
+        $('#div2').toggleClass('destaque') //se nao tiver adiciona
+
     </script>
 </body>
