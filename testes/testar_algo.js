@@ -1,8 +1,6 @@
-function teste(i) {
-    if(i < 10)
-        console.log('numero: ' + i++)
-
-    setTimeout(() => teste(i), 1000)
+function fun(arg) {
+    console.log(arg)
 }
 
-teste(0)
+const a = [ 1,2,3]
+fun({...a})
