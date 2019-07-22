@@ -80,3 +80,32 @@ db.estados.save({
         populacao: 644919
     }]
 })
+
+# pegar somente o primeiro resultado
+db.estados.findOne()
+
+# pegar somente o primeiro resultado, com filtro
+db.estados.findOne({sigla: 'RJ'})
+
+# buscar com operador OR
+db.estados.find({$or: [{sigla: 'RJ'}, {sigla: 'P'}]})
+
+# buscar com operador AND
+db.estados.find({$and: [{sigla: 'RJ'}, {sigla: 'P'}]}).pretty()
+
+# buscar um dado somente se existe um atributo
+db.estados.find({populacao: {$exists: true}})
+
+# buscar limintado entre skip e limit
+db.estados.find().skip(1).limit(2)
+
+# quantidade de dados
+db.estados.count()
+
+# filtrar dados => ( {filtro}, {atributos que virão})
+db.estados.find({sigla:'SP'}, {nome:1, _id:0})
+
+# filtrar dados mostrando apenas os nomes das cidades de SP
+db.estados.find({sigla:'SP'}, {"cidades.nome":1, _id:0})
+
+
