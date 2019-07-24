@@ -157,6 +157,14 @@ export default class UserCrud extends Component {
         })
     }
 
+    load(user) {
+        this.setState({ user })
+    }
+
+    remove(user) {
+        axios.delete(`${baseUrl}/${user.id}`)
+    }
+
     render() {
         return (
             <Main {...headerProps}>

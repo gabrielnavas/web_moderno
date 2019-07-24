@@ -1,0 +1,111 @@
+# para listar comandos
+help
+
+
+# para listar os bancos de dados
+show dbs
+
+
+# comecar a usar um banco
+use 'my_banco' 
+
+
+# para listar as colecoes de um banco
+show collections
+
+
+# criar uma colecao
+db.createCollection('my_collection')
+
+
+# deletar uma colecao
+db.my_collection.drop()
+
+
+# inserir um dado diretamente sem ter criado a collection
+db.estados.insert({nome: 'acre', sigla: 'AC',regiao: 'norte'})
+
+# outro exemplo de inserção
+db.estados.insert({
+    nome:'Rio de Janeiro',
+    sigla:'RJ',
+    regiao:'Sudeste',
+    cidades:[{
+        nome: 'Niterói',
+        area: 133.9,
+        populacao: 487562
+    }, {
+        nome: 'Rio de Janeiro',
+        area: 543,11,
+        populacao: 543654,
+        tem_bondinho: true
+    }]
+})
+
+
+# save posso inserir como atualizar tb uma info
+db.estados.save({nome: 'Alogoas', sigla: 'AL', regiao: 'Nordeste', populacao: 3322000})
+
+
+# obter os dados de uma collection
+db.estados.find()
+
+
+# usando a hash do ID
+db.estados.find('id_de_uma_info')
+
+
+# mostrando de forma formatada
+db.estados.find().pretty()
+
+# criar subcollections com IDs
+db.estados.save({
+    nome:'São Paulo',
+    sigla: 'SP',
+    regiao: 'Sudeste',
+    cidades: [{
+        _id: ObjectId(),
+        nome: 'Campinas',
+        area:795.7,
+        prefeito:'Jonas Donizette',
+        populacao:1081000
+    }, {
+        _id: ObjectId(),
+        nome:'Guarulhos',
+        populacao:1325000
+    }, {
+        _id: ObjectId(),
+        nome: 'Sorocaba',
+        distanciaCapital: 87,
+        populacao: 644919
+    }]
+})
+
+# pegar somente o primeiro resultado
+db.estados.findOne()
+
+# pegar somente o primeiro resultado, com filtro
+db.estados.findOne({sigla: 'RJ'})
+
+# buscar com operador OR
+db.estados.find({$or: [{sigla: 'RJ'}, {sigla: 'P'}]})
+
+# buscar com operador AND
+db.estados.find({$and: [{sigla: 'RJ'}, {sigla: 'P'}]}).pretty()
+
+# buscar um dado somente se existe um atributo
+db.estados.find({populacao: {$exists: true}})
+
+# buscar limintado entre skip e limit
+db.estados.find().skip(1).limit(2)
+
+# quantidade de dados
+db.estados.count()
+
+# filtrar dados => ( {filtro}, {atributos que virão})
+db.estados.find({sigla:'SP'}, {nome:1, _id:0})
+
+# filtrar dados mostrando apenas os nomes das cidades de SP
+db.estados.find({sigla:'SP'}, {"cidades.nome":1, _id:0})
+
+

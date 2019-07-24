@@ -1,5 +1,18 @@
 <!-- Título (jumbotron) -->
 <!-- Breadcrumb -->
+<div class="jumbotron p-4 my-1">
+    <h1 class="display-4">Fundamentos</h1>
+    <p class="lead m-1">Alguns recursos importantes do BootStrap </p>
+</div>
+
+<nav class="mb-5">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="#/paginas/bemVindo.html">Home</a>
+        </li>
+        <li class="breadcrumb-item active"></li>
+    </ol>
+</nav>
 
 <div class="exercicio">
     <h1>1. Tipografia -
@@ -25,9 +38,11 @@
     <hr>
 
     <!-- Espaços -->
-
     <div class="mb-5">1</div>
-    <div class="m-4" py-4>2</div>
+    <div class="m-4 py-4">2</div>
+    <div class="pt-5">3</div>
+    <div class="ml-5 p-2">4</div>
+
     <h1 class="mt-5">3. Cores -
         <small>
             <a href="https://getbootstrap.com/docs/4.0/utilities/colors/" target="_black">Documentação Oficial</a>
@@ -36,6 +51,9 @@
     <hr>
 
     <!-- Cores -->
+    <div class="my-1 p-3 bg-primary text-light">1</div>
+    <div class="my-1 p-3 bg-danger text-white">2</div>
+    <div class="my-1 p-3 bg-warning text-success">3</div>
 
     <h1 class="mt-5">4. Flex -
         <small>
@@ -45,6 +63,16 @@
     <hr>
 
     <!-- Flex -->
+    <div class="d-flex flex-column-reverse p-2 m-1">
+        <div class="align-self-end">1</div>
+        <div class="align-self-center">2</div>
+        <div class="align-self-start">3</div>
+    </div>
+    <div class="d-flex flex-column p-2" m-1>
+        <div class="align-self-end">1</div>
+        <div class="align-self-center">2</div>
+        <div class="align-self-start">3</div>
+    </div>
 
     <h1 class="mt-5">5. Imagens -
         <small>
@@ -54,6 +82,12 @@
     <hr>
 
     <!-- Imagens -->
+    <div class="p-2">
+        <img src="/imgs/img1.png" alt="Imagem 1" class="mx-auto d-block" width="400">
+        <img src="/imgs/img1.png" alt="Imagem 1" class="img-thumbnail" width="400">
+        <img src="/imgs/img1.png" alt="Imagem 1" class="img-fluid rounded-circle" width="400">
+    </div>
+
 
     <h1 class="mt-5">6. Float -
         <small>
@@ -63,6 +97,8 @@
     <hr>
 
     <!-- Float -->
+    
+
 </div>
 
 <style>
