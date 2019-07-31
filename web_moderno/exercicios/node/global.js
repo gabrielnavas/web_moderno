@@ -1,8 +1,11 @@
-// console.log(global)
+global.a=2
 
-global.MinhaApp = {
-    ola: 'Olá, estou em todos lugares',
-    mensagem(){
-        return 'Estou em todos lugares'
-    }
-}
+console.log(global.a)
+
+
+// global.MinhaApp = {
+//     ola: 'Olá, estou em todos lugares',
+//     mensagem(){
+//         return 'Estou em todos lugares'
+//     }
+// }
